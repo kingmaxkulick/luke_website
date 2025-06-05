@@ -13,7 +13,7 @@ const Contact: React.FC = () => {
   return (
     <motion.section
       id="contact"
-      className="min-h-screen w-full flex flex-col items-center justify-center bg-background text-foreground p-8 md:p-16 text-center"
+      className="min-h-screen w-full relative flex flex-col items-center justify-center bg-background text-foreground p-8 md:p-16 text-center"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
@@ -37,6 +37,11 @@ const Contact: React.FC = () => {
         </a>
 
         {/* Optional: Add social links here later if desired */}
+      </div>
+      <div className="absolute bottom-0 left-0 right-0 w-full text-center pt-12 pb-4">
+        <p className="text-xs text-muted-foreground">
+          &copy; {new Date().getFullYear()} AVENTUS. All Rights Reserved.
+        </p>
       </div>
     </motion.section>
   );
