@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Theme variable definitions moved outside of @layer base */
+:root {
+  /* Light theme variables (default) */
+  --background: 0 0% 98%; /* #FAFAFA */
+  --foreground: 0 0% 3.9%; /* #0A0A0A */
+  --card: 0 0% 100%; /* #FFFFFF */
+  --card-foreground: 0 0% 3.9%; /* #0A0A0A */
+  --popover: 0 0% 100%; /* #FFFFFF */
+  --popover-foreground: 0 0% 3.9%; /* #0A0A0A */
+  --primary: 270 70% 60%; /* Vibrant Purple */
+  --primary-foreground: 20 14.3% 4.1%; /* #100C0B */
+  --secondary: 0 0% 96.1%; /* #F5F5F5 */
+  --secondary-foreground: 0 0% 9%; /* #171717 */
+  --muted: 0 0% 90%; /* #E5E5E5 */
+  --muted-foreground: 0 0% 45.1%; /* #737373 */
+  --accent: 270 70% 60%; /* Vibrant Purple */
+  --accent-foreground: 20 14.3% 4.1%; /* #100C0B */
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 89.8%; /* #E5E5E5 */
+  --input: 0 0% 93%; /* #EDEDED */
+  --ring: 270 70% 65%; /* Vibrant Purple - Ring */
+  --radius: 0.5rem;
+  --chart-1: 12 76% 61%;
+  --chart-2: 173 58% 39%;
+  --chart-3: 197 37% 24%;
+  --chart-4: 43 74% 66%;
+  --chart-5: 27 87% 67%;
+}
+
+.dark {
+  /* Dark theme variable overrides */
+  --background: 0 0% 3.9%;   /* #0A0A0A */
+  --foreground: 0 0% 98%; /* #FAFAFA */
+  --card: 0 0% 5.9%; /* #0F0F0F */
+  --card-foreground: 0 0% 98%; /* #FAFAFA */
+  --popover: 0 0% 3.9%; /* #0A0A0A */
+  --popover-foreground: 0 0% 98%; /* #FAFAFA */
+  --primary: 270 70% 60%; /* Vibrant Purple */
+  --primary-foreground: 20 14.3% 4.1%; /* #100C0B */
+  --secondary: 0 0% 14.9%; /* #262626 */
+  --secondary-foreground: 0 0% 98%; /* #FAFAFA */
+  --muted: 0 0% 10%; /* #1A1A1A */
+  --muted-foreground: 0 0% 55%; /* #8C8C8C */
+  --accent: 270 70% 60%; /* Vibrant Purple */
+  --accent-foreground: 20 14.3% 4.1%; /* #100C0B */
+  --destructive: 0 70% 50%; /* #FF2626 */
+  --destructive-foreground: 0 0% 98%; /* #FAFAFA */
+  --border: 0 0% 20%; /* #333333 */
+  --input: 0 0% 12%; /* #1F1F1F */
+  --ring: 270 70% 65%; /* Vibrant Purple - Ring */
+  /* Chart variables preserved from original dark theme */
+  --chart-1: 220 70% 50%;
+  --chart-2: 160 60% 45%;
+  --chart-3: 30 80% 55%;
+  --chart-4: 280 65% 60%;
+  --chart-5: 340 75% 55%;
+  /* New card background variables for dark theme */
+  --card-bg-var-1: 285 50% 20%; /* Deep Magenta/Purple */
+  --card-bg-var-2: 180 45% 18%; /* Rich Teal */
+  --card-bg-var-3: 35 55% 22%;  /* Warm Amber/Gold */
+  --card-bg-var-4: 220 40% 20%; /* Cool Slate Blue */
+}
+
+@layer utilities {
+  .bg-card-var-1 {
+    background-color: hsl(var(--card-bg-var-1));
+  }
+  .bg-card-var-2 {
+    background-color: hsl(var(--card-bg-var-2));
+  }
+  .bg-card-var-3 {
+    background-color: hsl(var(--card-bg-var-3));
+  }
+  .bg-card-var-4 {
+    background-color: hsl(var(--card-bg-var-4));
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground; /* This will now correctly use the overridden vars when .dark is active on html */
+  }
+
+  * {
+    @apply border-border;
+  }
+}
