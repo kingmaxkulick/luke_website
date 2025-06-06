@@ -24,7 +24,7 @@ const About: React.FC = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-start">
           {/* Left Column: Text Content */}
-          <div className="sticky top-32 flex flex-col justify-center">
+          <div className="sticky top-32 flex flex-col justify-center z-10 bg-background md:bg-transparent">
             <div className="relative mb-6 md:mb-8 self-start">
               <h3 className="text-2xl md:text-3xl font-light text-muted-foreground absolute -top-6 left-0 transform -translate-y-1/2 italic">
                 Who we
