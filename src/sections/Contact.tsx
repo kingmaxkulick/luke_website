@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail } from 'lucide-react'; // For the email icon
+import contactVideo from '@/assets/Video Project 8.mp4'; // Import the contact page video
 
 const Contact: React.FC = () => {
   const sectionVariants = {
@@ -13,14 +14,28 @@ const Contact: React.FC = () => {
   return (
     <motion.section
       id="contact"
-      className="min-h-screen w-full relative flex flex-col items-center justify-center bg-background text-foreground p-8 md:p-16 text-center"
+      className="min-h-screen w-full relative flex flex-col items-center justify-center text-foreground p-8 md:p-16 text-center overflow-hidden"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
       variants={sectionVariants}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <div className="container mx-auto max-w-2xl">
+      {/* Video Background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+      >
+        <source src={contactVideo} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      {/* Overlay to ensure text readability */}
+      <div className="absolute top-0 left-0 w-full h-full bg-black opacity-60 z-10"></div>
+      <div className="relative z-20 container mx-auto max-w-2xl">
         <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">
           Get in Touch
         </h2>
@@ -38,7 +53,9 @@ const Contact: React.FC = () => {
 
         {/* Optional: Add social links here later if desired */}
       </div>
-      <div className="absolute bottom-0 left-0 right-0 w-full text-center pt-12 pb-4">
+      
+      {/* Copyright moved to absolute bottom */}
+      <div className="absolute bottom-4 left-0 right-0 w-full text-center z-20">
         <p className="text-xs text-muted-foreground">
           &copy; {new Date().getFullYear()} AVENTUS. All Rights Reserved.
         </p>
