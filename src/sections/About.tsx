@@ -14,7 +14,7 @@ const About: React.FC = () => {
   return (
     <motion.section // Change to motion.section
       id="about"
-      className="min-h-screen w-full flex items-start justify-center bg-background text-foreground p-8 md:p-16" // Added overflow-hidden
+      className="min-h-screen w-full flex items-start justify-center bg-background text-foreground p-12 md:p-16" // Added overflow-hidden
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }} // Trigger when 30% of the section is visible, animate once
