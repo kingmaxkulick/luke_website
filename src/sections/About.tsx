@@ -55,9 +55,9 @@ const About: React.FC = () => {
           </div>
 
           {/* Right Column: Image, Text, Video Placeholder */}
-          <div className="flex flex-col"> {/* Main container for right column */}
-            {/* Team Photo Wrapper - this div will be tall and provide spacing */}
-            <div className="w-full h-[75vh] flex items-center justify-center mb-16">
+          <div className="flex flex-col md:pt-0"> {/* Main container for right column. md:pt-0 ensures no extra top padding from grid gap on desktop if items-start causes it. */} 
+            {/* Team Photo Wrapper */}
+            <div className="w-full md:h-[75vh] flex items-center justify-center mb-8 md:mb-16 py-8 md:py-0">
               {/* Inner wrapper to define the image's square size */}
               <div className="w-full max-w-lg aspect-square">
                 <img
@@ -68,8 +68,8 @@ const About: React.FC = () => {
               </div>
             </div>
 
-            {/* Video Section - this div will be tall to allow centering of the video */}
-            <div className="w-full h-[75vh] flex items-center justify-center">
+            {/* Video Section */}
+            <div className="w-full md:h-[75vh] flex items-center justify-center py-8 md:py-0">
               {/* Inner wrapper for the video for sizing control */}
               <div className="w-full max-w-2xl">
                 <video
