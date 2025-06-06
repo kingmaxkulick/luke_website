@@ -1,20 +1,20 @@
-import Hero from './sections/Hero';
-import About from './sections/About';
-import FeaturedWork from './sections/FeaturedWork';
-import Contact from './sections/Contact';
-import BackToTopButton from './components/BackToTopButton';
+import { Routes, Route } from 'react-router-dom';
+import HomePageLayout from './HomePageLayout';
+import TeamStoryPage from './TeamStoryPage';
+import ScrollToTop from './components/ScrollToTop'; // Import ScrollToTop
 import './App.css'; // Keep if you have specific App-level styles
 // import './index.css'; // Already imported in main.tsx
 
 function App() {
   return (
-    <main className="flex flex-col">
-      <Hero />
-      <About />
-      <FeaturedWork />
-      <Contact />
-      <BackToTopButton />
-    </main>
+    <>
+      <ScrollToTop />
+      <Routes>
+      <Route path="/" element={<HomePageLayout />} />
+      <Route path="/team-story" element={<TeamStoryPage />} />
+      {/* You can add more routes here later, e.g., for individual project pages */}
+      </Routes>
+    </>
   );
 }
 

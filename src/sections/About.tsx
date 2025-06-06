@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'; // Import motion
 import teamPhoto from '@/assets/pexels-ron-lach-10477281.jpg';
 import aboutVideo from '@/assets/4994039-uhd_3840_2160_25fps.mp4';
 import { ArrowRight } from 'lucide-react'; // For the "Read More" icon
+import { Link } from 'react-router-dom'; // Import Link
 
 const About: React.FC = () => {
   const sectionVariants = {
@@ -44,13 +45,13 @@ const About: React.FC = () => {
               Headquartered in NYC but operating on a global scale, we have the skills 
               and infrastructure that modern brands need to support successful social platforms.
             </p>
-            <a
-              href="/about-details" // Placeholder link
+            <Link
+              to="/team-story"
               className="inline-flex items-center text-primary hover:text-primary/80 transition-colors text-lg group"
             >
               Learn More
               <ArrowRight className="ml-2 h-5 w-5 transform transition-transform duration-300 group-hover:translate-x-1" />
-            </a>
+            </Link>
           </div>
 
           {/* Right Column: Image, Text, Video Placeholder */}
