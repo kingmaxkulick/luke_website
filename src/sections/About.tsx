@@ -14,7 +14,7 @@ const About: React.FC = () => {
   return (
     <motion.section // Change to motion.section
       id="about"
-      className="min-h-screen w-full flex items-start justify-center bg-background text-foreground p-12 md:p-16" // Added overflow-hidden
+      className="min-h-screen w-full flex flex-col md:flex-row items-center md:items-start justify-center bg-background text-foreground pt-24 px-6 pb-12 md:pt-16 md:px-16 md:pb-16" // Added overflow-hidden
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }} // Trigger when 30% of the section is visible, animate once
@@ -24,8 +24,8 @@ const About: React.FC = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-start">
           {/* Left Column: Text Content */}
-          <div className="md:sticky md:top-32 flex flex-col justify-center">
-            <div className="relative mb-6 md:mb-8 self-start">
+          <div className="md:sticky md:top-32 flex flex-col justify-center text-center items-center md:text-left md:items-start">
+            <div className="relative mb-6 md:mb-8 self-center md:self-start">
               <h3 className="text-2xl md:text-3xl font-light text-muted-foreground absolute -top-6 left-0 transform -translate-y-1/2 italic">
                 Who we
               </h3>
@@ -55,7 +55,7 @@ const About: React.FC = () => {
           </div>
 
           {/* Right Column: Image, Text, Video Placeholder */}
-          <div className="flex flex-col md:pt-0"> {/* Main container for right column. md:pt-0 ensures no extra top padding from grid gap on desktop if items-start causes it. */} 
+          <div className="hidden md:flex flex-col md:pt-0"> {/* Main container for right column. md:pt-0 ensures no extra top padding from grid gap on desktop if items-start causes it. */} 
             {/* Team Photo Wrapper */}
             <div className="w-full md:h-[75vh] flex items-center justify-center mb-8 md:mb-16 py-8 md:py-0">
               {/* Inner wrapper to define the image's square size */}
