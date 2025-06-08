@@ -1,7 +1,6 @@
 import React from 'react';
 import aventusLogo from '@/assets/aventus_cutout.svg';
 import { Instagram, YouTube, LinkedIn } from '@mui/icons-material';
-import { MessageSquare } from 'lucide-react'; // MessageSquare as TikTok placeholder
 import heroVideo from '/src/assets/stockedit.mp4'; // Import the video
 
 const Hero: React.FC = () => {
@@ -39,9 +38,6 @@ const Hero: React.FC = () => {
           <a href="#" aria-label="Instagram" className="text-foreground hover:text-primary transition-colors">
             <Instagram sx={{ fontSize: 24 }} />
           </a>
-          <a href="#" aria-label="TikTok" className="text-foreground hover:text-primary transition-colors">
-            <MessageSquare size={24} />
-          </a>
           <a href="#" aria-label="YouTube" className="text-foreground hover:text-primary transition-colors">
             <YouTube sx={{ fontSize: 24 }} />
           </a>
@@ -55,9 +51,6 @@ const Hero: React.FC = () => {
       <div className="hidden md:flex absolute bottom-6 left-0 right-0 z-20 justify-center space-x-6 md:space-x-8">
         <a href="#" aria-label="Instagram" className="text-foreground hover:text-primary transition-colors">
           <Instagram sx={{ fontSize: 24 }} />
-        </a>
-        <a href="#" aria-label="TikTok" className="text-foreground hover:text-primary transition-colors">
-          <MessageSquare size={24} /> {/* TikTok Placeholder - lucide */}
         </a>
         <a href="#" aria-label="YouTube" className="text-foreground hover:text-primary transition-colors">
           <YouTube sx={{ fontSize: 24 }} />
