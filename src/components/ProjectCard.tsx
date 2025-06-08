@@ -34,8 +34,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         )}
       </div>
       <div className="p-6 flex-grow">
-        <h3 className="text-2xl font-semibold mb-2 text-foreground">{project.projectName}</h3>
-        <p className="text-muted-foreground text-sm">{project.description}</p>
+        <h3 className="text-xl md:text-2xl font-semibold mb-2 text-foreground">{project.projectName}</h3>
+        <p className="text-muted-foreground text-xs md:text-sm">{project.description}</p>
         {/* Optional: Add a button or link here */}
       </div>
     </div>
