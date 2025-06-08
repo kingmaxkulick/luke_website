@@ -14,7 +14,7 @@ const Contact: React.FC = () => {
   return (
     <motion.section
       id="contact"
-      className="h-screen md:min-h-screen w-full relative flex flex-col items-center justify-center text-foreground p-8 md:p-16 text-center overflow-hidden"
+      className="h-[100dvh] md:min-h-screen w-full relative flex flex-col items-center justify-center text-foreground p-8 md:p-16 text-center overflow-hidden"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
