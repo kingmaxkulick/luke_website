@@ -33,10 +33,26 @@ const Hero: React.FC = () => {
         <p className="mt-4 text-xl sm:text-2xl md:text-3xl font-light text-foreground">
           Creative Media That Captivates
         </p>
+
+        {/* Social Icons - Mobile Only */}
+        <div className="mt-8 flex justify-center space-x-6 md:hidden z-20">
+          <a href="#" aria-label="Instagram" className="text-foreground hover:text-primary transition-colors">
+            <Instagram sx={{ fontSize: 24 }} />
+          </a>
+          <a href="#" aria-label="TikTok" className="text-foreground hover:text-primary transition-colors">
+            <MessageSquare size={24} />
+          </a>
+          <a href="#" aria-label="YouTube" className="text-foreground hover:text-primary transition-colors">
+            <YouTube sx={{ fontSize: 24 }} />
+          </a>
+          <a href="#" aria-label="LinkedIn" className="text-foreground hover:text-primary transition-colors">
+            <LinkedIn sx={{ fontSize: 24 }} />
+          </a>
+        </div>
       </div>  {/* End of main content centering div */}
 
-      {/* Social Icons - Placed as direct child of section for correct absolute positioning */}
-      <div className="absolute bottom-6 left-0 right-0 z-20 flex justify-center space-x-6 md:space-x-8">
+      {/* Social Icons - Desktop Only (original position) */}
+      <div className="hidden md:flex absolute bottom-6 left-0 right-0 z-20 justify-center space-x-6 md:space-x-8">
         <a href="#" aria-label="Instagram" className="text-foreground hover:text-primary transition-colors">
           <Instagram sx={{ fontSize: 24 }} />
         </a>
@@ -49,7 +65,7 @@ const Hero: React.FC = () => {
         <a href="#" aria-label="LinkedIn" className="text-foreground hover:text-primary transition-colors">
           <LinkedIn sx={{ fontSize: 24 }} />
         </a>
-      </div>
+      </div> {/* End of Desktop social icons div */}
     </section>
   );
 };

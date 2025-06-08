@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import useEmblaCarousel from 'embla-carousel-react';
+import { Button } from '@/components/ui/button'; // Assuming shadcn/ui Button
+import { ArrowRight, ArrowLeft } from 'lucide-react';
 import ProjectCard, { type Project } from '@/components/ProjectCard'; // Assuming ProjectCard is in src/components
 
 
@@ -45,11 +47,40 @@ const FeaturedWork: React.FC = () => {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0 },
   };
-  const [emblaRef] = useEmblaCarousel({ 
+  const [emblaRef, emblaApi] = useEmblaCarousel({ 
     loop: false, 
     align: 'start', 
     containScroll: 'trimSnaps' 
   });
+
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(false);
+
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    const onSelect = () => {
+      setCanScrollPrev(emblaApi.canScrollPrev());
+      setCanScrollNext(emblaApi.canScrollNext());
+    };
+
+    emblaApi.on('select', onSelect);
+    emblaApi.on('reInit', onSelect); // Handle reinitialization
+    onSelect(); // Initial check
+
+    return () => {
+      emblaApi.off('select', onSelect);
+      emblaApi.off('reInit', onSelect);
+    };
+  }, [emblaApi]);
 
   return (
     <motion.section 
@@ -85,7 +116,31 @@ const FeaturedWork: React.FC = () => {
             ))}
           </div>
         </div>
-
+        {/* Next Button */}
+        {emblaApi && (
+          <div className="hidden md:flex justify-end items-center mt-4 md:mt-6 pr-4 sm:pr-0 space-x-3">
+            <Button
+              onClick={scrollPrev}
+              disabled={!canScrollPrev}
+              variant="outline"
+              size="icon"
+              className="group focus-visible:ring-neutral-500 dark:focus-visible:ring-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:text-neutral-900 dark:hover:text-neutral-100"
+              aria-label="Previous project"
+            >
+              <ArrowLeft className="h-4 w-4 transition-transform duration-300 group-hover:-translate-x-1" />
+            </Button>
+            <Button
+              onClick={scrollNext}
+              disabled={!canScrollNext}
+              variant="outline"
+              size="icon"
+              className="group focus-visible:ring-neutral-500 dark:focus-visible:ring-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:text-neutral-900 dark:hover:text-neutral-100"
+            >
+              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+            
+            </Button>
+          </div>
+        )}
       </div>
     </motion.section>
   );

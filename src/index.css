@@ -60,10 +60,10 @@
   --chart-4: 280 65% 60%;
   --chart-5: 340 75% 55%;
   /* New card background variables for dark theme */
-  --card-bg-var-1: 285 50% 20%; /* Deep Magenta/Purple */
+  --card-bg-var-1: 0 0% 15%; /* Dark Gray (formerly Deep Magenta/Purple) */
   --card-bg-var-2: 180 45% 18%; /* Rich Teal */
   --card-bg-var-3: 35 55% 22%;  /* Warm Amber/Gold */
-  --card-bg-var-4: 220 40% 20%; /* Cool Slate Blue */
+  --card-bg-var-4: 0 0% 18%; /* Slightly Lighter Dark Gray (formerly Cool Slate Blue) */
 }
 
 @layer utilities {
