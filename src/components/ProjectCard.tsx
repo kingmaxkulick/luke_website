@@ -17,7 +17,7 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
-    <div className={`${project.bgColorClass || 'bg-card'} text-card-foreground rounded-lg shadow-lg overflow-hidden w-full max-w-md mx-auto`}>
+    <div className={`${project.bgColorClass || 'bg-card'} text-card-foreground rounded-lg shadow-lg overflow-hidden w-full max-w-md mx-auto h-full flex flex-col`}>
       <div className="relative aspect-video group overflow-hidden">
         <img 
           src={project.thumbnailUrl} 
@@ -33,7 +33,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           </div>
         )}
       </div>
-      <div className="p-6">
+      <div className="p-6 flex-grow">
         <h3 className="text-2xl font-semibold mb-2 text-foreground">{project.projectName}</h3>
         <p className="text-muted-foreground text-sm">{project.description}</p>
         {/* Optional: Add a button or link here */}
