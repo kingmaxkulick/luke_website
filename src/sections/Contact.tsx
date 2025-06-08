@@ -27,7 +27,7 @@ const Contact: React.FC = () => {
         loop
         muted
         playsInline
-        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+        className="absolute top-0 left-0 w-full h-full object-cover z-0 transform scale-105"
       >
         <source src={contactVideo} type="video/mp4" />
         Your browser does not support the video tag.
